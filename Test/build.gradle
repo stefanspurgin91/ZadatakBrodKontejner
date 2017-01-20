@@ -1,0 +1,47 @@
+task clean {
+    println 'Clean ucitan'
+
+    doLast {
+        println 'Cleaning...'
+    }
+}
+
+task compile {
+    println 'compile ucitan'
+
+    doLast {
+        println 'Compiling'
+    }
+}
+
+compile.dependsOn clean
+
+task build {
+    println 'build ucitan'
+
+    doLast {
+        println 'Building...'
+    }
+}
+
+build.dependsOn compile, clean
+
+task test {
+    println 'test ucitan'
+
+    doLast {
+        'Testing...'
+    }
+}
+
+test.dependsOn build
+
+task deploy {
+    println 'deploy ucitan'
+
+    doLast {
+        println 'Deploying...'
+    }
+}
+
+deploy.dependsOn test
